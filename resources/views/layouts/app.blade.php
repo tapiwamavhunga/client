@@ -36,6 +36,18 @@ h5, .h5, .user-info span,h4, .h4,.card-title, .welcome-profile .card-body ul li 
   font-family: Archivo !important;
 }
 
+.brochure-category-details h2 {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 12px !important;
+  font-family: Archivo !important;
+}
+
 
 
 

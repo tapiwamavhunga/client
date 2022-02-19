@@ -26,7 +26,8 @@ class HomeController extends Controller
 
     protected function index(){
        $result = array(); 
-       $posts = Post::published()->newest()->paginate(200);
+       $posts = Post::type('medicalbrochure')->status('publish')->get();
+       // $posts = Post::published()->newest()->paginate(200);
 
          if ( $posts ) {
                 foreach ( $posts as $key => $post ) {
