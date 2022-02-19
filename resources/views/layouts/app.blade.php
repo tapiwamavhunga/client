@@ -31,6 +31,14 @@
   padding: 15px 0 !important;
   border-bottom: 0.5px solid #f2f2f2;
 }
+
+h5, .h5, .user-info span,h4, .h4,.card-title, .welcome-profile .card-body ul li a, .btn.btn-primary,.dropdown-item, i, .medclient-search input[type="text"] {
+  font-family: Archivo !important;
+}
+
+
+
+
     </style>
 </head>
 <body class="dashboard">
@@ -45,7 +53,7 @@
           <div class="header-left">
             <div class="brand-logo">
                 <a href="/">
-                <img src="http://localhost/client.main/wp-content/uploads/2022/02/Cipla_logo.svg_-1.png" style="width: 150px; float: left;">
+                <img src="{{URL::asset('/images/Cipla_logo.svg_-.png')}}" style="width: 150px; float: left;">
                 </a>
             </div>
             <div class="search d-none">
@@ -167,7 +175,7 @@
                 </div>
 
                 
-                <a href="profile.html" class="dropdown-item">
+                <a href="user/profile/{{ Auth::user()->id }}" class="dropdown-item">
                   <i class="bi bi-person"></i>Profile
                 </a>
                 <a href="wallet.html" class="dropdown-item">
@@ -209,13 +217,13 @@
 
   <div class="sidebar">
   <div class="brand-logo">
-    <a href="index.html"><img src="images/logoi.png" alt="" width="30" /> </a>
+    <a href="/"><img src="{{URL::asset('/images/fav.png')}}" alt="" width="50" /> </a>
   </div>
   <div class="menu">
     <ul>
       <li>
         <a
-          href="index.html"
+          href="/"
           data-toggle="tooltip"
           data-placement="right"
           title="Home"
@@ -225,7 +233,7 @@
       </li>
       <li>
         <a
-          href="trade.html"
+          href=""
           data-toggle="tooltip"
           data-placement="right"
           title="Trade"
@@ -246,7 +254,7 @@
       <li>
         <a
           class="setting_"
-          href="settings-profile.html"
+          href="/settings"
           data-toggle="tooltip"
           data-placement="right"
           title="Settings"
