@@ -33,10 +33,10 @@
 
 <div id='brochure-search-page' class='container-fluid mt-5 pt-5'>
     
-      <form action='' method="post" id='searchbrochuresform'>
+<form action='' method="post" id='searchbrochuresform'>
                     <div id='medclient-portfolios-search' class='medclient-search'>
-                        <input type='hidden' name='page_author_id' value='tapiwa'>
-                        <input type='text' name='brochure_search' placeholder='Search by Keyword, ICD-10 code or health area.' value='' required>
+                        <input type='hidden' name='page_author_id' value='medinformer'>
+                        <input type='text' name='brochure_search' placeholder='Search by Keyword, ICD-10 code or health area.' value='<?php if(isset($_POST['brochure_search'])): echo $_POST['brochure_search']; endif; ?>' required>
                         <button type='submit' name='brochure_search_button' class='brochure_search_button' value='Search'>
                             <span class='button-text mc-animate'>Search</span>
                             <span class='button-loading mc-animate'>
@@ -224,7 +224,8 @@ if( $result ) { ?>
                   <div class='brochure-category-image' style='background-image:url("{{$category->image}}")' id="s_{{ $category->term_id }}"></div>
                   <div class='brochure-category-details'>
                     <h2>{{$category->name}}</h2>
-                  </div>
+
+<?php  $category->image; ?>                  </div>
                 </div>  
         @endforeach
 

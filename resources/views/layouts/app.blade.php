@@ -10,8 +10,12 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/medinformer-api-client-public.js') }}" defer></script>
+    <script type='text/javascript' id='medinformer-api-client-js-extra'>
+/* <![CDATA[ */
+    var ajax = {"url":"https:\/\/practitioner.medinformer.co.za\/ajax.php"};
+/* ]]&gt; */
+</script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -32,7 +36,7 @@
   border-bottom: 0.5px solid #f2f2f2;
 }
 
-h5, .h5, .user-info span,h4, .h4,.card-title, .welcome-profile .card-body ul li a, .btn.btn-primary,.dropdown-item, i, .medclient-search input[type="text"] {
+body, h5, .h5, .user-info span,h4, .h4,.card-title, .welcome-profile .card-body ul li a, .btn.btn-primary,.dropdown-item, i, .medclient-search input[type="text"] {
   font-family: Archivo !important;
 }
 

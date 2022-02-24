@@ -65,13 +65,13 @@ return [
 
         'corcel' => [ // You can name this connection name as you wish  
         'driver'    => 'mysql',
-        'host'      => 'localhost:3308',
-        'database'  => 'webpress',
-        'username'  => 'root',
-        'password'  => '',
+        'host'      => 'localhost:3306',
+        'database'  => 'info-wp-4akMOfBc',
+        'username'  => 'LpPDf3vk4rBa',
+        'password'  => 'O9finqNJKjISBSAM',
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
-        'prefix'    => 'wp_',
+        'prefix'    => 'wp_3a5f1129cd_',
         'strict'    => false,
         'engine'    => null,
 ],

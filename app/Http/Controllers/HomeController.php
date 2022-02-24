@@ -47,9 +47,14 @@ class HomeController extends Controller
         }
 
         $categories = Taxonomy::where('taxonomy', 'category')->get();
+
         // $cat->each(function($category) {
         //     echo $category->name;
         // });
+
+        // foreach ($categories as $cat) {
+        //     var_dump($cat) ;
+        // }
 
         
 
