@@ -4,35 +4,8 @@
 </style>
 @section('content')
 
-
-
-<div style="background: #1E78A9;"  class="mt-5 alert alert-dismissible fade show" role="alert" >
-
-
-    <div class="container-fluid welcome-message" style="background: #1E78A9;">
-            <div class="d-lg-flex justify-content-between align-items-center">
-              <div class="pr-5 image-border"><img src="https://www.bootstrapdash.com/demo/wagondash/template/images/dashboard/welcome.png" alt="welcome"></div>
-              <div class="pl-4">
-                <h2 class="text-white font-weight-bold mb-3">Welcome to Medinformer</h2>
-                <p class="pb-0 mb-1">Congratulations! Your account has been setup and you are ready to configure your dashboard now.</p>
-                <p>Configuration only take a couple of seconds.</p>
-              </div>
-              <div class="pl-4">
-                <button type="button" class="btn btn-primary" id="skip-mesages" type="button" class="close" data-dismiss="alert" aria-label="Close">Skip</button>
-                <button type="button" class="btn btn-success ml-lg-0 ml-xl-2 ml-2 ml-l mt-lg-2 mt-xl-0">Setup Manually</button>
-              </div>
-            </div>
-
-
-
-</div>
-
-
-</div>
-
-
+@include('templates.complete_profile')
 <div id='brochure-search-page' class='container-fluid mt-5 pt-5'>
-    
 <form action='' method="post" id='searchbrochuresform'>
                     <div id='medclient-portfolios-search' class='medclient-search'>
                         <input type='hidden' name='page_author_id' value='medinformer'>
@@ -174,71 +147,49 @@ color: #fff !important;">Email now</button>
                       }
                     </style>
 
-                  <div class='brochure-groups'>
+    <div class='brochure-groups'>
+            <?php 
 
+            if( $result ) { ?>    
+                <div id="alphabetical-posts">
+                  <?php $letters = array_keys($result); ?>
+                  <?php if( $letters ) { ?>
+                    <div class="letters-wrap mt-5 mb-5">
+                      <ul class="letters">          
+                        <?php foreach( $letters as $key => $letter ) { ?>
+                          <li><a href="#goto-letter-<?php echo $letter; ?>"><?php echo $letter; ?></a></li>
+                        <?php } ?>
+                      </ul>
+                    </div>
+                  <?php } ?>
 
-<?php 
+                  <div class="brochure-groups">
+                  <div class="posts row row-cols-lg-4 row-cols-md-2 row-cols-1 max-mb-n30">
+                    <?php foreach( $result as $letter => $posts ) { ?>
+                      <div id="goto-letter-<?php echo $letter; ?>" class="item">
+                        <h3><?php echo $letter; ?></h3>
+                        <div class="list brochure-items">
+                          <?php foreach( $posts as $key => $post ) { ?>
+                            <div class="col">
+                                <div class='brochure-item mc-animate' data-bid='<?= $post['ID'] ?>' id="s_<?= $post['ID'] ?>"><a><?php echo $post['title']; ?></a></div>
 
-if( $result ) { ?>    
-    <div id="alphabetical-posts">
-      <?php $letters = array_keys($result); ?>
-      <?php if( $letters ) { ?>
-        <div class="letters-wrap mt-5 mb-5">
-          <ul class="letters">          
-            <?php foreach( $letters as $key => $letter ) { ?>
-              <li><a href="#goto-letter-<?php echo $letter; ?>"><?php echo $letter; ?></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-      <?php } ?>
-
-      <div class="brochure-groups">
-      <div class="posts row row-cols-lg-4 row-cols-md-2 row-cols-1 max-mb-n30">
-        <?php foreach( $result as $letter => $posts ) { ?>
-          <div id="goto-letter-<?php echo $letter; ?>" class="item">
-            <h3><?php echo $letter; ?></h3>
-            <div class="list brochure-items">
-              <?php foreach( $posts as $key => $post ) { ?>
-                <div class="col">
-                    <div class='brochure-item mc-animate' data-bid='<?= $post['ID'] ?>' id="s_<?= $post['ID'] ?>"><a><?php echo $post['title']; ?></a></div>
-
+                            </div>
+                          <?php } ?>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+                </div>
                 </div>
               <?php } ?>
-            </div>
-          </div>
-        <?php } ?>
-      </div>
-    </div>
-    </div>
-  <?php } ?>
-
-<!-- End -->
-
+            <!-- End -->
 </div>
 
-  <div class='brochure-categories'>
+@include('templates.categories')
 
-    @foreach($categories as $category)
-
-                <div class='brochure-category' data-id='{{ $category->term_id }}'>
-                  <div class='brochure-category-image' style='background-image:url("{{$category->image}}")' id="s_{{ $category->term_id }}"></div>
-                  <div class='brochure-category-details'>
-                    <h2>{{$category->name}}</h2>
-
-<?php  $category->image; ?>                  </div>
-                </div>  
-        @endforeach
-
-  </div>
-
-  
-
-
-
-  <div class='brochure-postscripts'>
+<div class='brochure-postscripts'>
       post scripts load here...
-  </div>
-
+</div>
 
 </div>
 
@@ -263,27 +214,16 @@ if( $result ) { ?>
 
   
 
-  <div id='brochure-categories-page'>
-                    <div class='brochure-categories-loading'>
-                        <span class='ajax-loading mc-animate'>
-                            <div class="ld ld-hourglass ld-spin"></div>
-                        </span>
-                        <span class='ajax-loading-text'><i>- Loading category brochures, please wait...</i></span>
-                    </div>
-                    <div class='brochure-categories-results'></div>
-                </div>
-
-
-
+        <div id='brochure-categories-page'>
+            <div class='brochure-categories-loading'>
+                <span class='ajax-loading mc-animate'>
+                    <div class="ld ld-hourglass ld-spin"></div>
+                </span>
+                <span class='ajax-loading-text'><i>- Loading category brochures, please wait.....</i></span>
+            </div>
+            <div class='brochure-categories-results'></div>
+        </div>
 
 </div>
-
-
-
-
 </div>
-
-
-
-
 @endsection
