@@ -38,7 +38,6 @@
   </head>
 
   <body class="@@dashboard">
- <div id="preloader"><i>.</i><i>.</i><i>.</i></div>
 
 
 <div id="main-wrapper">
