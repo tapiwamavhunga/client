@@ -65,13 +65,13 @@ return [
 
         'corcel' => [ // You can name this connection name as you wish  
         'driver'    => 'mysql',
-        'host'      => 'localhost:3306',
-        'database'  => 'info-wp-4akMOfBc',
-        'username'  => 'LpPDf3vk4rBa',
-        'password'  => 'O9finqNJKjISBSAM',
+        'host'      => 'localhost',
+        'database'  => 'pharmacy-wp-JI9lwnRl',
+        'username'  => 'toHWpUAU8qYr',
+        'password'  => 'eigrp200',
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
-        'prefix'    => 'wp_3a5f1129cd_',
+        'prefix'    => 'wp_',
         'strict'    => false,
         'engine'    => null,
 ],
